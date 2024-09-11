@@ -1,7 +1,8 @@
 # METL-Conductor
 
 This repository contains scripts and Dockerfiles required to setup METL
-fine-tuning on CHTC servers.
+fine-tuning on CHTC servers. The pre-built Docker image is currently hosted
+on ```https://hub.docker.com/repository/docker/arnvsharma/metl-finetuning```.
 
 ## Building Docker container
 
