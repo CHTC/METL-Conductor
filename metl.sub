@@ -1,0 +1,33 @@
+# This is a submit file to deploy a containerized job with the appropriate
+# conda environment activated.
+universe = container
+# TODO: Change this to pull your own image from DockerHub
+container_image = docker://arnvsharma/metl-finetuning:latest
+
+# TODO: Change this whenver you're deploying actual jobs
+executable = hello_world.sh
+output = $(Cluster)_$(Process).out
+
+transfer_input_files = main.py
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+# The conda environment will install cudatoolkit verison 12.1
+require_gpus = (DriverVersion >= 12.1)
+request_gpus = 1
+
+# Run on GPU Lab (CHTC)
++WantGPULab = true
++GPUJobLength = "short"
+
+# Uncomment this for short interruptible jobs that can run on other groups' GPU servers
+#+is_resumable = true
+
+request_cpus = 1
+request_memory = 10GB
+request_disk = 30GB
+
+log = $(Cluster)_$(Process).log
+error = $(Cluster)_$(Process).err
+
+queue 1
