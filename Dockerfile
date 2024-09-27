@@ -68,5 +68,5 @@ RUN git clone https://github.com/gitter-lab/metl/
 RUN cd metl && git checkout ${GITCOMMIT}
 
 WORKDIR /app/
-COPY pretrain.sh /app/pretrain.sh
+COPY finetune.sh /app/finetune.sh
 
