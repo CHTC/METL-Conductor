@@ -27,6 +27,7 @@ LABEL com.nvidia.volumes.needed="nvidia_driver"
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         ca-certificates \
         pciutils \
+        git \
         && rm -rf /var/lib/apt/lists/*
 
 
@@ -43,6 +44,7 @@ COPY environment.yml .
 
 ## TODO: Change this if you changed the name of the conda environment for any dev work
 ARG CONDA_ENV=metl
+ARG GITCOMMIT=main
 
 # Manually invoke bash on miniconda script per https://github.com/conda/conda/issues/10431
 RUN chmod +x ~/miniconda.sh && \
@@ -61,4 +63,10 @@ ENV PATH /opt/conda/envs/$CONDA_ENV/bin:$PATH
 ENV CONDA_DEFAULT_ENV $CONDA_ENV
 RUN /bin/bash -c "source activate ${CONDA_ENV}"
 
-WORKDIR /workspace
+WORKDIR /workspace/
+RUN git clone https://github.com/gitter-lab/metl/ 
+RUN cd metl && git checkout ${GITCOMMIT}
+
+WORKDIR /app/
+COPY pretrain.sh /app/pretrain.sh
+
