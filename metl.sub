@@ -1,14 +1,11 @@
 # This is a submit file to deploy a containerized job with the appropriate
 # conda environment activated.
 universe = container
-# TODO: Change this to pull your own image from DockerHub
-container_image = docker://arnvsharma/metl-finetuning:latest
+container_image = osdf:///ospool/ap40/data/ian.ross/metl.sif
 
-# TODO: Change this whenver you're deploying actual jobs
-executable = hello_world.sh
+executable = finetune.sh
 output = $(Cluster)_$(Process).out
 
-transfer_input_files = main.py
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
