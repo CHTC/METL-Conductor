@@ -28,6 +28,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
         ca-certificates \
         pciutils \
         git \
+        unzip \
         && rm -rf /var/lib/apt/lists/*
 
 
@@ -65,8 +66,27 @@ RUN /bin/bash -c "source activate ${CONDA_ENV}"
 
 WORKDIR /workspace/
 RUN git clone https://github.com/gitter-lab/metl/ 
-RUN cd metl && git checkout ${GITCOMMIT}
+RUN cd metl && git checkout ${GITCOMMIT} && cd ..
+
+# Get only the pdb files from the metl-pub repo
+RUN git init && \
+  git remote add -f origin https://github.com/gitter-lab/metl-pub/ && \
+  git config core.sparsecheckout true && \
+  echo data/pdb_files/ >> .git/info/sparse-checkout && \
+  git pull origin main && \
+  cp data/pdb_files/* /workspace/metl/data/pdb_files/
+
+# Add the pdb_index.csv file as well
+ADD pdb_index.csv /workspace/metl/data/rosetta_data/
+
+
 
 WORKDIR /app/
 COPY finetune.sh /app/finetune.sh
+COPY pretrain.sh /app/pretrain.sh
+
+
+CMD "/bin/bash"
+
+
 
