@@ -65,7 +65,7 @@ ENV CONDA_DEFAULT_ENV $CONDA_ENV
 RUN /bin/bash -c "source activate ${CONDA_ENV}"
 
 WORKDIR /workspace/
-RUN git clone https://github.com/gitter-lab/metl/ 
+RUN git clone https://github.com/iross/metl/ 
 RUN cd metl && git checkout ${GITCOMMIT} && cd ..
 
 # Get only the pdb files from the metl-pub repo
@@ -84,6 +84,8 @@ ADD pdb_index.csv /workspace/metl/data/rosetta_data/
 WORKDIR /app/
 COPY finetune.sh /app/finetune.sh
 COPY pretrain.sh /app/pretrain.sh
+COPY evaluate_model.py
+COPY pretrain_global.txt /workspace/metl/args/
 
 
 CMD "/bin/bash"
