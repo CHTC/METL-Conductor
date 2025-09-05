@@ -51,6 +51,8 @@ ARG GITCOMMIT=main
 RUN chmod +x ~/miniconda.sh && \
     bash ~/miniconda.sh -b -p /opt/conda && \
     rm ~/miniconda.sh && \
+    /opt/conda/bin/conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r && \
+    /opt/conda/bin/conda tos accept --override-channels --channel  https://repo.anaconda.com/pkgs/main && \
     /opt/conda/bin/conda env create -f environment.yml && \
     /opt/conda/bin/conda clean -ya
 
@@ -84,7 +86,7 @@ ADD pdb_index.csv /workspace/metl/data/rosetta_data/
 WORKDIR /app/
 COPY finetune.sh /app/finetune.sh
 COPY pretrain.sh /app/pretrain.sh
-COPY evaluate_model.py
+COPY evaluate_model.py /app/
 COPY pretrain_global.txt /workspace/metl/args/
 
 
