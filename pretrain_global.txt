@@ -1,7 +1,7 @@
 --ds_fn
 data/rosetta_data/global/global.db
 --split_dir
-data/rosetta_data/global/splits/standard_tr0.8_tu0.1_te0.1_w1aea30517f4f_r4991
+data/rosetta_data/global/splits/standard_tr0.9_tu0.05_te0.05_w2a93d88bac32_r2098
 --train_name
 train
 --val_name
