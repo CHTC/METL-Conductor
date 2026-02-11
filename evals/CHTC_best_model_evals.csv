@@ -1,0 +1,4 @@
+JobId,test_loss,best_model_name
+bVWGKaY4,26.873506546020508,output/training_logs/bVWGKaY4/checkpoints/epoch=28-step=707165-val_loss=26.86.ckpt
+5vb7ygGz,26.26732635498047,output/training_logs/5vb7ygGz/checkpoints/epoch=29-step=731550-val_loss=26.25.ckpt
+o5nH6AB5,26.1810302734375,output/training_logs/o5nH6AB5/checkpoints/epoch=29-step=731550-val_loss=26.15.ckpt

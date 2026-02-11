@@ -1,0 +1,10 @@
+JobId,test_loss,best_model_name
+e68502e5,23.673486709594727,output/training_logs/e68502e5/checkpoints/epoch=29-step=1928800-val_loss=23.65.ckpt
+b2f60292,24.5207576751709,output/training_logs/b2f60292/checkpoints/epoch=29-step=1757076-val_loss=24.50.ckpt
+01378e4a,25.009281158447266,output/training_logs/01378e4a/checkpoints/epoch=29-step=2319414-val_loss=25.00.ckpt
+f045a936,24.988370895385742,output/training_logs/f045a936/checkpoints/epoch=29-step=1831110-val_loss=24.97.ckpt
+81de9128,24.756568908691406,output/training_logs/81de9128/checkpoints/epoch=25-step=1806874-val_loss=24.73.ckpt
+fadd9684,23.428144454956055,output/training_logs/fadd9684/checkpoints/epoch=29-step=2197484-val_loss=23.41.ckpt
+204b38e5,24.356491088867188,output/training_logs/204b38e5/checkpoints/epoch=24-step=1929097-val_loss=24.34.ckpt
+9208b80f,24.321264266967773,output/training_logs/9208b80f/checkpoints/epoch=29-step=1839239-val_loss=24.31.ckpt
+e3285847,24.155254364013672,output/training_logs/e3285847/checkpoints/epoch=25-step=2173394-val_loss=24.14.ckpt
