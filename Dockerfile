@@ -85,7 +85,8 @@ ADD pdb_index.csv /workspace/metl/data/rosetta_data/
 
 WORKDIR /app/
 COPY finetune.sh /app/finetune.sh
-COPY pretrain.sh /app/pretrain.sh
+COPY pretrain_global.sh /app/pretrain_global.sh
+COPY pretrain_local.sh /app/pretrain_local.sh
 COPY evaluate_model.py /app/
 COPY pretrain_global.txt /workspace/metl/args/
 
