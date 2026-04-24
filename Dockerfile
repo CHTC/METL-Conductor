@@ -89,6 +89,7 @@ COPY pretrain_global.sh /app/pretrain_global.sh
 COPY pretrain_local.sh /app/pretrain_local.sh
 COPY evaluate_model.py /app/
 COPY pretrain_global.txt /workspace/metl/args/
+COPY pretrain_local.txt /workspace/metl/args/
 
 
 CMD "/bin/bash"

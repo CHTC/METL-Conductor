@@ -7,9 +7,8 @@ else
     epochs=$1
     run_uuid=$2
     random_seed=$3
-    dataset_name=$4
+    dataset_name="${4:-gb1}"
 fi
-nvidia-smi
 
 #echo "Copying ${dataset_name} dataset"
 # cp "/staging/iaross/processed-${dataset_name}.tar.gz" .
@@ -36,7 +35,7 @@ export WANDB_CACHE_DIR=$PWD/wandb/.cache
 export WANDB_CONFIG_DIR=$PWD/wandb/.config
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
-python /workspace/metl/code/train_source_model.py @/workspace/metl/args/pretrain_avgfp_local.txt \
+python /workspace/metl/code/train_source_model.py @/workspace/metl/args/pretrain_$dataset_name\_local.txt \
     --ds_fn "$PWD/${dataset_name}/${dataset_name}.db"   \
     --split_dir "$PWD/${dataset_name}/splits/${splits_dir}" \
     --max_epochs $epochs --uuid=$run_uuid  \

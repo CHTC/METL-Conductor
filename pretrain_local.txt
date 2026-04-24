@@ -1,7 +1,3 @@
---ds_fn
-data/rosetta_data/avgfp/avgfp.db
---split_dir
-data/rosetta_data/avgfp/splits/standard_tr0.8_tu0.1_te0.1_w1aea30517f4f_r4991
 --train_name
 train
 --val_name
